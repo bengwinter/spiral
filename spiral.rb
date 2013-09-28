@@ -25,10 +25,11 @@ end
 
 while n_counter >= 0
   spiral_array << array[m_counter][n_counter]
-  if n_counter > 0
+  break if n_counter == 0
     n_counter -= 1
   end
-end 
+  
+
 
 # spiral_array << array[m_counter][n_counter]
 
@@ -38,7 +39,7 @@ end
 #   n_counter -= 1
 # end
 
-# binding pry
+binding pry
 
 
 
