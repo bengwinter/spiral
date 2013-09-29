@@ -12,24 +12,57 @@ n_dimension = (array[0].length.to_i-1)
 
 m_counter = 0
 n_counter = 0
+x_counter = 0
 
-while n_counter < n_dimension
-  spiral_array << array[m_counter][n_counter]
-  n_counter += 1
+while n_dimension > 0 && m_dimension > 0
+
+  while n_counter < n_dimension
+    spiral_array << array[m_counter][n_counter]
+    n_counter += 1
+  end
+
+  while m_counter < m_dimension
+    spiral_array << array[m_counter][n_counter]
+    m_counter += 1
+  end
+
+  while n_counter >= x_counter
+    spiral_array << array[m_counter][n_counter]
+    break if n_counter == x_counter
+      n_counter -= 1
+  end
+
+  x_counter += 1
+  m_counter -= 1
+# binding pry
+  while m_counter >= x_counter
+    spiral_array << array[m_counter][n_counter]
+    break if m_counter == x_counter
+      m_counter -= 1
+  end
+
+n_dimension -= 1
+m_dimension -= 1
+n_counter += 1
+x_counter += 1
+# binging pry
+
 end
+# binding pry
+# spiral_array << array[m_counter][n_counter]
 
-#I do not want this to include the last array, that will just be a .reverse function and then go up
-while m_counter < m_dimension
-  spiral_array << array[m_counter][n_counter]
-  m_counter += 1
-end
 
-while n_counter >= 0
-  spiral_array << array[m_counter][n_counter]
-  n_counter -= 1
-end 
+# while m_counter > 0
+#   spiral_array << array[m_dimension][n_counter]
+#   n_counter -= 1
+# end
+
+# binding pry
 
 puts spiral_array
+
+
+
 
 # puts array[0][0]
 # puts array[0][1]
